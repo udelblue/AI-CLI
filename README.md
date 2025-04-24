@@ -29,6 +29,14 @@ python main.py --prompt_file example_prompts/example_joke.prompt --output_file  
 python main.py --prompt_file example_prompts/example_joke.prompt --output_file  example_output/example_output.txt --system_message_file example_system_messages/role_comedian.prompt --verbose=True
 ```
 
+```bash
+python main.py --prompt_file example_prompts/example_joke.prompt --output_file  example_output/example_output.txt --system_message_file example_system_messages/role_comedian.prompt --verbose=True --openai_api_key sk-000000000000000000
+```
+
+```bash
+python main.py --prompt_file example_prompts/example_joke.prompt --output_file  example_output/example_output.txt  --openai_api_key sk-000000000000000000
+```
+
 ## Command line options
 ```bash
 python main.py -h
