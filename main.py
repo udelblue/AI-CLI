@@ -14,6 +14,7 @@ def main():
         "--prompt_file", 
         type=str, 
         required=True, 
+        default=None,
         help="Path to the file containing the prompt text."
     )
 
@@ -21,6 +22,7 @@ def main():
         "--output_file", 
         type=str, 
         required=True, 
+        default=None,
         help="Path to the file where the AI response will be saved."
     )
 
@@ -59,6 +61,8 @@ def main():
         "--verbose", 
         type=bool, 
         required=False, 
+        default=False,
+        choices=[True, False],
         help="Verbose mode. Extra information will be printed to the console. Good for debugging."
     )
 
@@ -66,6 +70,7 @@ def main():
         "--prompt_prepend_file", 
         type=str, 
         required=False, 
+        default=None,
         help="Path to the file containing the prompt prepend text."
     )
 
