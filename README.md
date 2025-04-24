@@ -1,4 +1,7 @@
 
+# AI-CLI
+AI CLI is a commandline utility to batch process files through a openai model. 
+
 
 ## Install uv 
 
@@ -17,7 +20,7 @@ python main.py --help
 
 python main.py --prompt_file [input_file] --output_file [output_file] 
 
-# Example prompts
+### Example prompts
 
 python main.py --prompt_file example_prompts/example_joke.prompt --output_file  example_output/example_output.txt  --verbose=True
 
