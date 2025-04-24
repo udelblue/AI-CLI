@@ -22,14 +22,7 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
     else:
         max_tokens = max_tokens
 
-    if verbose:
-            print(Style.RESET_ALL + Fore.GREEN + "Verbose mode is enabled.")
-            print(Fore.YELLOW + f"Prompt file: {prompt}")
-            print(Fore.YELLOW + f"Model: {default_model}")
-            print(Fore.YELLOW + f"Max tokens: {max_tokens}")
-            print(Fore.YELLOW + f"Prompt message: {prompt}")
-            if system_message:
-                print(Fore.YELLOW + f"System message: {system_message}")
+  
 
 
     if not api_key:
@@ -69,6 +62,16 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
         # Return the AI's response  
         model_response = response.choices[0].message.content
 
+        if verbose:
+            print(Style.RESET_ALL + Fore.GREEN + "Verbose mode is enabled.")
+            print(Fore.BLUE + f"Prompt: {prompt}")
+            print(Fore.CYAN + f"Response: {model_response}")
+            print(Fore.YELLOW + f"Model: {default_model}")
+            print(Fore.YELLOW + f"Max tokens: {max_tokens}")
+            if system_message:
+                print(Fore.YELLOW + f"System message: {system_message}")
+
+            print(Fore.CYAN + f"Response: {model_response}")
 
         return model_response
     except Exception as e:

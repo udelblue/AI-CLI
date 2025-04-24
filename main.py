@@ -1,6 +1,8 @@
 import argparse
 from colorama import Fore, Style, init
 from ai_agent import call_ai_agent
+import os
+
 
 # Initialize colorama
 init(autoreset=True)
@@ -50,6 +52,14 @@ def main():
         help="Verbose mode. Extra information will be printed to the console. Good for debugging."
     )
 
+    parser.add_argument(
+        "--prompt_prepend_file", 
+        type=str, 
+        required=False, 
+        help="Path to the file containing the prompt prepend text."
+    )
+
+
     args = parser.parse_args()
 
     # Read the system message from the file
@@ -73,6 +83,19 @@ def main():
     except FileNotFoundError:
         print(Fore.RED + f"Error: The file {args.prompt_file} was not found.")
         return
+
+    # Read the prompt prepend from the file
+    prepend_file = args.prompt_prepend_file
+
+    if prepend_file:
+        try:
+            with open(prepend_file, 'r') as file:
+                prepend = file.read()
+                prompt = prepend + " " + prompt
+        except FileNotFoundError:
+            print(Fore.RED + f"Error: The file {prepend_file} was not found.")
+            return
+
 
     # get the model
     # Check if the model is provided
