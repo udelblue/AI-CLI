@@ -36,21 +36,43 @@ python main.py -h
 
 ### Options:
 ```bash
-  -h, --help            show this help message and exit
 
+  -h, --help            show this help message and exit
+  
   --prompt_file PROMPT_FILE
                         Path to the file containing the prompt text.
 
   --output_file OUTPUT_FILE
                         Path to the file where the AI response will be saved.
 
-  --model MODEL         Model used. Default is set in the config file.
+  --model {gpt-4,gpt-4-0314,gpt-4-32k,gpt-4-32k-0314,gpt-3.5-turbo,gpt-3.5-turbo-0301,text-davinci-003,code-davinci-002,text-davinci-001,text-curie-001,text-babbage-001,text-ada-001}  
+                        Model used. Default is set in the config file.
 
   --system_message_file SYSTEM_MESSAGE_FILE
                         Path to the file containing the System message.
 
-  --max_tokens MAX_TOKENS
-                        Max tokens used in the api call. Default is set in the config file.
+  --openai_api_key OPENAI_API_KEY
+                        OpenAI api key. If passed it will ignore the one in the config      
+                        file.
 
-  --verbose VERBOSE     Verbose mode. Extra information will be printed to the console.  Good for debugging.
+  --max_tokens MAX_TOKENS
+                        Limits the number of tokens in the response. Default is set in the  
+                        config file.
+
+  --temperature TEMPERATURE
+                        Controls randomness. Lower values make output more deterministic. 
+
+  --top_p TOP_P         Controls diversity via nucleus sampling. 0.5 means half of all      
+                        likelihood-weighted options are considered.
+
+  --verbose {True,False}
+                        Verbose mode. Extra information will be printed to the console.     
+                        Good for debugging.
+
+  --return_json {True,False}
+                        Return JSON format of responses.
+
+  --prompt_prepend_file PROMPT_PREPEND_FILE
+                        Path to the file containing the prompt prepend text.
 ```
+
