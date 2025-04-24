@@ -23,7 +23,7 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
         max_tokens = max_tokens
 
     # set openai_api_key if one is provided from cli
-    if not openai_api_key:
+    if openai_api_key:
         api_key = openai_api_key
 
     if not api_key:
