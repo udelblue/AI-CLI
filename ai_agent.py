@@ -4,7 +4,7 @@ from colorama import Fore, Style, init
 
 
 
-def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 ):
+def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0): 
     
     # Load API key from properties file
     config = configparser.ConfigParser()
@@ -39,15 +39,16 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
             response = openai.chat.completions.create(
                 model= str(default_model),
                 messages=[{"role": "system", "content": system_message}, {"role": "user", "content": prompt}],
-                max_tokens=int(str(max_tokens))
+                max_tokens=int(str(max_tokens)),
                 temperature=temperature
+                
             )
         else:   
             # Call the AI agent (e.g., OpenAI GPT) without a system message
             response = openai.chat.completions.create(
                 model= str(default_model),
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=int(str(max_tokens))
+                max_tokens=int(str(max_tokens)),
                 temperature=temperature
             )
 
