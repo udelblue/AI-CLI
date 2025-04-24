@@ -46,7 +46,7 @@ def main():
         "--max_tokens", 
         type=int, 
         required=False, 
-        help="Max tokens used in the api call. Default is set in the config file."
+        help="Limits the number of tokens in the response. Default is set in the config file."
     )
 
     parser.add_argument(
@@ -54,8 +54,17 @@ def main():
         type=int, 
         required=False, 
         default=0,
-        help="Temperature used in the api call. Lower temp leads to more predictable and consistent responses."
+        help="Controls randomness. Lower values make output more deterministic."
     )
+
+    parser.add_argument(
+        "--top_p", 
+        type=int, 
+        required=False, 
+        default=1,
+        help="Controls diversity via nucleus sampling. 0.5 means half of all likelihood-weighted options are considered."
+    )
+
 
     parser.add_argument(
         "--verbose", 
@@ -124,8 +133,12 @@ def main():
     # temperature value
     temperature=args.temperature
 
+    # top_p value
+    top_p=args.top_p
+
+
     # Call the AI agent
-    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature)
+    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p)
 
     # Write the response to the output file
     try:
