@@ -1,6 +1,6 @@
 
 # AI-CLI
-AI CLI is a commandline utility to batch process files through a openai model. You can process multiple files just loop over all the file paths and send the output to another path. You can also chain the output of one processed file to reimport into another cycle with a system prompt. Extreamely useful utility.
+AI CLI is a commandline utility to batch process files through a openai model. You can process multiple files just loop over all the file paths and send the output to another path. You can also chain the output of one procemptsssed file to reimport into another cycle with a system prompt. Extreamely useful utility.
 
 ## Install uv 
 
@@ -19,7 +19,7 @@ key=sk-******************************
 python main.py --prompt_file [input_file] --output_file [output_file] 
 ```
 
-### Example prompts
+### Example command line 
 
 ```bash
 python main.py --prompt_file example_prompts/example_joke.prompt --output_file  example_output/example_output.txt  --verbose=True
