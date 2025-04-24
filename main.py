@@ -74,9 +74,6 @@ def main():
         help="Path to the file containing the prompt prepend text."
     )
 
-
-
-
     args = parser.parse_args()
 
     # Read the system message from the file

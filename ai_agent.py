@@ -71,6 +71,7 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
             print(Fore.CYAN + f"Response: {model_response}")
             print(Fore.YELLOW + f"Model: {default_model}")
             print(Fore.YELLOW + f"Max tokens: {max_tokens}")
+            print(Fore.YELLOW + f"Temperature: {temperature}")
             if system_message:
                 print(Fore.YELLOW + f"System message: {system_message}")
 
