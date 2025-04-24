@@ -43,6 +43,15 @@ def main():
     )
 
     parser.add_argument(
+        "--openai_api_key", 
+        type=str, 
+        required=False, 
+        default=None,
+        help="OpenAI api key. If passed it will ignore the one in the config file."
+    )
+
+
+    parser.add_argument(
         "--max_tokens", 
         type=int, 
         required=False, 
@@ -149,7 +158,7 @@ def main():
     return_json=args.return_json
 
     # Call the AI agent
-    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p, return_json=return_json)
+    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p, return_json=return_json , openai_api_key=args.openai_api_key)
 
     # Write the response to the output file
     try:

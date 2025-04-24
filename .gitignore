@@ -6,7 +6,7 @@ dist/
 wheels/
 *.egg-info
 
-config.properties
+*.properties
 
 # Virtual environments
 .venv

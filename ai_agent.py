@@ -4,7 +4,7 @@ from colorama import Fore, Style, init
 from typing import Iterable
 
 
-def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 , top_p=1, return_json=False): 
+def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 , top_p=1, return_json=False , openai_api_key=None): 
     
     # Load API key from properties file
     config = configparser.ConfigParser()
@@ -22,7 +22,10 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
     else:
         max_tokens = max_tokens
 
-  
+    # set openai_api_key if one is provided from cli
+    if not openai_api_key:
+        api_key = openai_api_key
+
     if not api_key:
         return print(Fore.RED + f"Error: API key not found in config.properties.") 
 
