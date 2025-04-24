@@ -93,6 +93,8 @@ def main():
         with open(args.output_file, 'w') as file:
             file.write(str(response))
         if verbose:
+            print(Fore.YELLOW + f"Input file path: {args.prompt_file}")
+            print(Fore.YELLOW + f"Output file path: {args.output_file}")
             print(Fore.GREEN + f"Response successfully written to {args.output_file}")
     except Exception as e:
         print(Fore.RED + f"Error writing to file: {e}")
