@@ -6,7 +6,7 @@ dist/
 wheels/
 *.egg-info
 
-config.properties.py
+config.properties
 
 # Virtual environments
 .venv
