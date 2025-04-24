@@ -50,15 +50,12 @@ def main():
         help="Verbose mode. Extra information will be printed to the console. Good for debugging."
     )
 
-
     args = parser.parse_args()
-
 
     # Read the system message from the file
     system_message = None
     system_message_file = args.system_message_file
 
- 
     # Check if the system message file is provided
     if system_message_file:
         try:
@@ -68,8 +65,6 @@ def main():
             print(Fore.RED + f"Error: The file {system_message_file} was not found.")
             return
     
-
-
 
     # Read the prompt from the file
     try:
@@ -91,7 +86,7 @@ def main():
 
 
     # Call the AI agent
-    response = call_ai_agent(prompt=prompt, model=model , verbose=verbose , max_tokens=max_tokens)
+    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens)
 
     # Write the response to the output file
     try:
