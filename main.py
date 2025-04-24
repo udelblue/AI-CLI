@@ -7,7 +7,7 @@ init(autoreset=True)
 
 def main():
     # Set up argument parser
-    parser = argparse.ArgumentParser(description="A CLI tool to interact with an AI agent.")
+    parser = argparse.ArgumentParser(prog='AI-CLI',description="A CLI tool to interact with an AI agent.")
     parser.add_argument(
         "--prompt_file", 
         type=str, 
@@ -15,13 +15,13 @@ def main():
         help="Path to the file containing the prompt text."
     )
 
-
     parser.add_argument(
         "--output_file", 
         type=str, 
         required=True, 
         help="Path to the file where the AI response will be saved."
     )
+
     parser.add_argument(
         "--model", 
         type=str, 
@@ -54,7 +54,7 @@ def main():
     args = parser.parse_args()
 
 
-  # Read the system message from the file
+    # Read the system message from the file
     system_message = None
     system_message_file = args.system_message_file
 
