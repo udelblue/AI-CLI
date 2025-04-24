@@ -92,7 +92,6 @@ def main():
         help="Return JSON format of responses."
     )
 
-
     parser.add_argument(
         "--prompt_prepend_file", 
         type=str, 
@@ -156,6 +155,13 @@ def main():
 
     # return_json flag
     return_json=args.return_json
+
+
+    # Check if prompt is empty
+    if not prompt.strip():
+        print(Fore.RED + "Error: The prompt is empty.")
+        return
+
 
     # Call the AI agent
     response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p, return_json=return_json , openai_api_key=args.openai_api_key)

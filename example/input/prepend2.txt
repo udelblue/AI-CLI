@@ -1,0 +1,1 @@
+Take the list of dog breeds and describe each breed.
