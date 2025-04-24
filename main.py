@@ -75,6 +75,16 @@ def main():
     )
 
     parser.add_argument(
+        "--return_json", 
+        type=bool, 
+        required=False, 
+        default=False,
+        choices=[True, False],
+        help="Return JSON format of responses."
+    )
+
+
+    parser.add_argument(
         "--prompt_prepend_file", 
         type=str, 
         required=False, 
@@ -135,8 +145,11 @@ def main():
     # top_p value
     top_p=args.top_p
 
+    # return_json flag
+    return_json=args.return_json
+
     # Call the AI agent
-    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p)
+    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature, top_p=top_p, return_json=return_json)
 
     # Write the response to the output file
     try:

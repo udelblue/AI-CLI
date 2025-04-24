@@ -4,7 +4,7 @@ from colorama import Fore, Style, init
 
 
 
-def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 , top_p=1): 
+def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 , top_p=1, return_json=False): 
     
     # Load API key from properties file
     config = configparser.ConfigParser()
@@ -23,8 +23,6 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
         max_tokens = max_tokens
 
   
-
-
     if not api_key:
         return print(Fore.RED + f"Error: API key not found in config.properties.") 
 
@@ -65,8 +63,13 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
         if not response.choices or len(response.choices) == 0:
             return print(Fore.RED + f"Error: No response from AI agent.") 
         
-        # Return the AI's response  
-        model_response = response.choices[0].message.content
+        # Return the AI's response 
+        if return_json:
+            model_response = response.choices[0].model_dump_json()
+        else:
+            model_response = response.choices[0].message.content
+
+      
 
         if verbose:
             print(Style.RESET_ALL + Fore.GREEN + "Verbose mode is enabled.")
