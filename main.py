@@ -28,6 +28,8 @@ def main():
         "--model", 
         type=str, 
         required=False, 
+        default=None,
+        choices=["gpt-4", "gpt-4-0314", "gpt-4-32k", "gpt-4-32k-0314", "gpt-3.5-turbo", "gpt-3.5-turbo-0301", "text-davinci-003", "code-davinci-002", "text-davinci-001", "text-curie-001", "text-babbage-001", "text-ada-001"],
         help="Model used. Default is set in the config file."
     )
 
@@ -46,6 +48,14 @@ def main():
     )
 
     parser.add_argument(
+        "--temperature", 
+        type=int, 
+        required=False, 
+        default=0,
+        help="Temperature used in the api call. Lower temp leads to more predictable and consistent responses."
+    )
+
+    parser.add_argument(
         "--verbose", 
         type=bool, 
         required=False, 
@@ -58,6 +68,8 @@ def main():
         required=False, 
         help="Path to the file containing the prompt prepend text."
     )
+
+
 
 
     args = parser.parse_args()
@@ -107,9 +119,11 @@ def main():
     # get the max tokens
     max_tokens=args.max_tokens
 
+    # temperature value
+    temperature=args.temperature
 
     # Call the AI agent
-    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens)
+    response = call_ai_agent(prompt=prompt, model=model , system_message=system_message, verbose=verbose , max_tokens=max_tokens, temperature=temperature)
 
     # Write the response to the output file
     try:
