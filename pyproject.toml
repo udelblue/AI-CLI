@@ -1,5 +1,5 @@
 [project]
-name = "ai-python-cli"
+name = "ai-batch-cli"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
