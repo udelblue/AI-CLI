@@ -21,8 +21,13 @@ key=sk-******************************
 ```bash
 # In cmd.exe
 venv\Scripts\activate.bat
+
+or 
+
+.venv\Scripts\activate
 # In PowerShell
 venv\Scripts\Activate.ps1
+
 ```
 
 ### Linux and MacOS venv activation
