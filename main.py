@@ -2,7 +2,7 @@ import argparse
 from colorama import Fore, Style, init
 from ai_agent import call_ai_agent
 import os
-
+from pathlib import Path
 
 # Initialize colorama
 init(autoreset=True)
@@ -108,8 +108,10 @@ def main():
 
     # Check if the system message file is provided
     if system_message_file:
+        filename = Path(system_message_file)
+
         try:
-            with open(system_message_file, 'r') as file:
+            with open(filename , 'r') as file:
                 system_message = file.read()
         except FileNotFoundError:
             print(Fore.RED + f"Error: The file {system_message_file} was not found.")
@@ -118,7 +120,9 @@ def main():
 
     # Read the prompt from the file
     try:
-        with open(args.prompt_file, 'r') as file:
+        filename = Path(args.prompt_file)
+
+        with open(filename, 'r') as file:
             prompt = file.read()
     except FileNotFoundError:
         print(Fore.RED + f"Error: The file {args.prompt_file} was not found.")
@@ -128,6 +132,8 @@ def main():
     prepend_file = args.prompt_prepend_file
 
     if prepend_file:
+        filename = Path(prepend_file)
+
         try:
             with open(prepend_file, 'r') as file:
                 prepend = file.read()
@@ -168,7 +174,9 @@ def main():
 
     # Write the response to the output file
     try:
-        with open(args.output_file, 'w') as file:
+        filename = Path(args.output_file)
+
+        with open(filename, 'w') as file:
             file.write(str(response))
         if verbose:
             print(Fore.YELLOW + f"Input file path: {args.prompt_file}")
