@@ -13,6 +13,24 @@ uv pip install -e
 Set the openapi key in the config.properties file
 key=sk-******************************
 
+## Virtual environment
+
+# Windows venv activation
+
+
+```bash
+# In cmd.exe
+venv\Scripts\activate.bat
+# In PowerShell
+venv\Scripts\Activate.ps1
+```
+
+# Linux and MacOS venv activation
+
+```bash
+$ source myvenv/bin/activate
+```
+
 ## Run 
 
 ```bash
