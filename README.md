@@ -15,7 +15,7 @@ key=sk-******************************
 
 ## Virtual environment
 
-# Windows venv activation
+### Windows venv activation
 
 
 ```bash
@@ -25,7 +25,7 @@ venv\Scripts\activate.bat
 venv\Scripts\Activate.ps1
 ```
 
-# Linux and MacOS venv activation
+### Linux and MacOS venv activation
 
 ```bash
 $ source myvenv/bin/activate
