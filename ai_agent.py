@@ -73,13 +73,7 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
                 top_p=top_p
             )
 
-        # Call the AI agent (e.g., OpenAI GPT)
-        response = openai.chat.completions.create(
-            model= str(default_model),
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=int(str(max_tokens))
-            
-        )
+      
         # Extract the response content
         if not response.choices or len(response.choices) == 0:
             return print(Fore.RED + f"Error: No response from AI agent.") 

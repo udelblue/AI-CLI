@@ -1,3 +1,11 @@
-1. Labrador Retriever
-2. German Shepherd
-3. Golden Retriever
+
+11. Dachshund
+12. Golden Retriever
+13. Labrador Retriever
+14. German Shepherd
+15. Siberian Husky
+16. Australian Shepherd
+17. Shih Tzu
+18. Border Collie
+19. Great Dane
+20. Chihuahua
