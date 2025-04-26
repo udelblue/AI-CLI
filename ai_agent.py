@@ -4,8 +4,26 @@ from colorama import Fore, Style, init
 from typing import Iterable
 
 
+
 def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , verbose=False, temperature=0 , top_p=1, return_json=False , openai_api_key=None): 
-    
+    """
+    Call the AI agent (e.g., OpenAI GPT) with the provided prompt and parameters.
+    Args:
+        prompt (str): The prompt to send to the AI agent.
+        system_message (str, optional): A system message to provide context. Defaults to None.
+        model (str, optional): The model to use. Defaults to None.
+        max_tokens (int, optional): The maximum number of tokens in the response. Defaults to None.
+        verbose (bool, optional): Whether to print verbose output. Defaults to False.
+        temperature (float, optional): Sampling temperature. Defaults to 0.
+        top_p (float, optional): Nucleus sampling parameter. Defaults to 1.
+        return_json (bool, optional): Whether to return the response as JSON. Defaults to False.
+        openai_api_key (str, optional): OpenAI API key. Defaults to None.
+
+
+    Returns:
+        str: The AI agent's response.
+    """
+
     # Load API key from properties file
     config = configparser.ConfigParser()
     config.read('config.properties')
@@ -72,6 +90,8 @@ def call_ai_agent(prompt, system_message=None, model=None , max_tokens=None , ve
         else:
             model_response = response.choices[0].message.content
 
+
+        # Print the response if verbose mode is enabled
         if verbose:
             print(Style.RESET_ALL + Fore.GREEN + "Verbose mode is enabled.")
             print(Fore.BLUE + f"Prompt: {prompt}")
